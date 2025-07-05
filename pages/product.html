@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZENEBE | Ethiopian Luxury Furniture</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Manrope', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #FFFFFF 0%, #F5F5F5 100%);
+        }
+        .product-card:hover .product-overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .line-clamp-1 {
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body class="bg-white text-[#7B5E57]">
+    <!-- Same navigation as index.html -->
+
+    <main class="pt-24 pb-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Breadcrumbs -->
+            <nav class="flex mb-6" aria-label="Breadcrumb">
+                <ol class="inline-flex items-center space-x-1 md:space-x-3">
+                    <li class="inline-flex items-center">
+                        <a href="index.html" class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-[#7B5E57]">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+                            </svg>
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <div class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                            </svg>
+                            <a href="shop.html" class="ml-1 text-sm font-medium text-gray-700 hover:text-[#7B5E57] md:ml-2">Shop</a>
+                        </div>
+                    </li>
+                    <li aria-current="page">
+                        <div class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                            </svg>
+                            <span class="ml-1 text-sm font-medium text-gray-500 md:ml-2">Product Detail</span>
+                        </div>
+                    </li>
+                </ol>
+            </nav>
+
+            <!-- Product Detail -->
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Product Images -->
+                <div>
+                    <div class="mb-4 rounded-lg overflow-hidden">
+                        <img id="main-image" src="" alt="" class="w-full h-[500px] object-cover">
+                    </div>
+                    <div class="grid grid-cols-4 gap-3">
+                        <img id="thumb-1" src="" alt="" class="h-24 object-cover rounded cursor-pointer border-2 border-transparent hover:border-[#7B5E57]">
+                        <img id="thumb-2" src="" alt="" class="h-24 object-cover rounded cursor-pointer border-2 border-transparent hover:border-[#7B5E57]">
+                        <img id="thumb-3" src="" alt="" class="h-24 object-cover rounded cursor-pointer border-2 border-transparent hover:border-[#7B5E57]">
+                        <img id="thumb-4" src="" alt="" class="h-24 object-cover rounded cursor-pointer border-2 border-transparent hover:border-[#7B5E57]">
+                    </div>
+                </div>
+
+                <!-- Product Info -->
+                <div>
+                    <h1 id="product-title" class="text-3xl font-bold mb-2"></h1>
+                    <div class="flex items-center mb-4">
+                        <div id="product-rating" class="flex text-[#F59E0B] mr-2"></div>
+                        <span id="review-count" class="text-gray-500 text-sm"></span>
+                    </div>
+                    <p id="product-price" class="text-2xl font-bold text-[#7B5E57] mb-6"></p>
+                    <p id="product-description" class="text-gray-600 mb-8"></p>
+
+                    <div class="mb-8">
+                        <h3 class="font-bold mb-3">Materials</h3>
+                        <ul id="materials-list" class="list-disc list-inside text-gray-600 space-y-1"></ul>
+                    </div>
+
+                    <div class="mb-8">
+                        <h3 class="font-bold mb-3">Dimensions</h3>
+                        <p id="product-dimensions" class="text-gray-600"></p>
+                    </div>
+
+                    <div class="mb-8">
+                        <h3 class="font-bold mb-3">Production & Delivery</h3>
+                        <div class="flex items-center text-gray-600 mb-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-[#A3B18A]" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
+                            </svg>
+                            <span id="production-time"></span>
+                        </div>
+                        <div class="flex items-center text-gray-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-[#A3B18A]" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+                            </svg>
+                            <span id="product-origin"></span>
+                        </div>
+                    </div>
+
+                    <div class="border-t border-gray-200 pt-6 mb-8">
+                        <div class="flex items-center space-x-4 mb-6">
+                            <div class="flex items-center border border-gray-200 rounded">
+                                <button class="px-3 py-2 text-xl" id="detail-decrease-qty">-</button>
+                                <span class="px-3 py-2 border-x border-gray-200 w-12 text-center" id="detail-qty">1</span>
+                                <button class="px-3 py-2 text-xl" id="detail-increase-qty">+</button>
+                            </div>
+                            <button id="add-to-cart-detail" class="bg-[#7B5E57] hover:bg-[#6a514b] text-white px-6 py-3 rounded-md font-medium transition flex-1">
+                                Add to Cart
+                            </button>
+                        </div>
+                        <button class="w-full border border-[#7B5E57] text-[#7B5E57] hover:bg-gray-50 px-6 py-3 rounded-md font-medium transition flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                            </svg>
+                            Add to Wishlist
+                        </button>
+                    </div>
+
+                    <div class="border-t border-gray-200 pt-6">
+                        <h3 class="font-bold mb-3">Share this product</h3>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-gray-500 hover:text-[#7B5E57]">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="text-gray-500 hover:text-[#7B5E57]">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="text-gray-500 hover:text-[#7B5E57]">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Tabs -->
+            <div class="mt-16 border-b border-gray-200">
+                <nav class="flex space-x-8">
+                    <button class="tab-button active py-4 px-1 border-b-2 font-medium text-sm" data-tab="description">
+                        Description
+                    </button>
+                    <button class="tab-button py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300" data-tab="specifications">
+                        Specifications
+                    </button>
+                    <button class="tab-button py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300" data-tab="reviews">
+                        Reviews (5)
+                    </button>
+                    <button class="tab-button py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300" data-tab="shipping">
+                        Shipping & Returns
+                    </button>
+                </nav>
+            </div>
+
+            <!-- Tab Content -->
+            <div class="py-8">
+                <div id="description" class="tab-content active">
+                    <h3 class="text-xl font-bold mb-4">Product Story</h3>
+                    <p class="text-gray-600 mb-6" id="full-description"></p>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="font-bold mb-3">Craftsmanship</h4>
+                            <p class="text-gray-600">Each piece is handcrafted by skilled artisans in Ethiopia using traditional techniques passed down through generations. The joinery is done without nails or screws, ensuring longevity and structural integrity.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-3">Sustainability</h4>
+                            <p class="text-gray-600">We use only sustainably sourced materials from Ethiopian forests managed with responsible harvesting practices. All finishes are non-toxic and environmentally friendly.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="specifications" class="tab-content hidden">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="font-bold mb-3">Technical Details</h4>
+                            <table class="w-full text-gray-600">
+                                <tr class="border-b border-gray-200">
+                                    <td class="py-3 font-medium">Material</td>
+                                    <td class="py-3" id="spec-material"></td>
+                                </tr>
+                                <tr class="border-b border-gray-200">
+                                    <td class="py-3 font-medium">Weight</td>
+                                    <td class="py-3" id="spec-weight"></td>
+                                </tr>
+                                <tr class="border-b border-gray-200">
+                                    <td class="py-3 font-medium">Assembly</td>
+                                    <td class="py-3">Required (tools included)</td>
+                                </tr>
+                                <tr class="border-b border-gray-200">
+                                    <td class="py-3 font-medium">Care Instructions</td>
+                                    <td class="py-3">Wipe clean with dry cloth</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-3">Dimensions</h4>
+                            <table class="w-full text-gray-600">
+                                <tr class="border-b border-gray-200">
+                                    <td class="py-3 font-medium">Height</td>
+                                    <td class="py-3" id="spec-height"></td>
+                                </tr>
+                                <tr class="border-b border-gray-200">
+                                    <td class="py-3 font-medium">Width</td>
+                                    <td class="py-3" id="spec-width"></td>
+                                </tr>
+                                <tr class="border-b border-gray-200">
+                                    <td class="py-3 font-medium">Depth</td>
+                                    <td class="py-3" id="spec-depth"></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="reviews" class="tab-content hidden">
+                    <div class="mb-8">
+                        <h3 class="text-xl font-bold mb-6">Customer Reviews</h3>
+                        <div class="flex items-center mb-6">
+                            <div class="mr-4">
+                                <span class="text-4xl font-bold">4.8</span>
+                                <span class="text-gray-500">/5</span>
+                            </div>
+                            <div>
+                                <div class="flex items-center mb-1">
+                                    <div class="flex text-[#F59E0B] mr-2">
+                                        <!-- Stars -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                        </svg>
+                                    </div>
+                                    <span class="text-gray-600 text-sm">Based on 24 reviews</span>
+                                </div>
+                                <div class="flex items-center text-sm text-gray-600">
+                                    <span class="mr-2">5 star</span>
+                                    <div class="w-32 bg-gray-200 rounded-full h-2 mr-2">
+                                        <div class="bg-[#F59E0B] h-2 rounded-full" style="width: 80%"></div>
+                                    </div>
+                                    <span>80%</span>
+                                </div>
+                                <div class="flex items-center text-sm text-gray-600">
+                                    <span class="mr-2">4 star</span>
+                                    <div class="w-32 bg-gray-200 rounded-full h-2 mr-2">
+                                        <div class="bg-[#F59E0B] h-2 rounded-full" style="width: 15%"></div>
+                                    </div>
+                                    <span>15%</span>
+                                </div>
+                                <div class="flex items-center text-sm text-gray-600">
+                                    <span class="mr-2">3 star</span>
+                                    <div class="w-32 bg-gray-200 rounded-full h-2 mr-2">
+                                        <div class="bg-[#F59E0B] h-2 rounded-full" style="width: 5%"></div>
+                                    </div>
+                                    <span>5%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="bg-[#7B5E57] hover:bg-[#6a514b] text-white px-6 py-2 rounded-md font-medium transition mb-8">
+                            Write a Review
+                        </button>
+
+                        <div class="space-y-8">
+                            <!-- Review 1 -->
+                            <div class="border-b border-gray-200 pb-8">
+                                <div class="flex items-center mb-4">
+                                    <div class="bg-[#A3B18A] text-white rounded-full h-10 w-10 flex items-center justify-center font-bold mr-3">T</div>
+                                    <div>
+                                        <h4 class="font-bold">Tigist Abebe</h4>
+                                        <div class="flex items-center">
+                                            <div class="flex text-[#F59E0B] mr-2">
+                                                <!-- 5 stars -->
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                </svg>
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                </svg>
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                </svg>
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                </svg>
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                </svg>
+                                            </div>
+                                            <span class="text-gray-500 text-sm">2 weeks ago</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <h5 class="font-medium mb-2">Beautiful craftsmanship</h5>
+                                <p class="text-gray-600">The attention to detail is incredible. This piece has become the centerpiece of our living room and gets compliments from everyone who visits. Worth every birr!</p>
+                            </div>
+
+                            <!-- Review 2 -->
+                            <div class="border-b border-gray-200 pb-8">
+                                <div class="flex items-center mb-4">
+                                    <div class="bg-[#A3B18A] text-white rounded-full h-10 w-10 flex items-center justify-center font-bold mr-3">E</div>
+                                    <div>
+                                        <h4 class="font-bold">Elias Mohammed</h4>
+                                        <div class="flex items-center">
+                                            <div class="flex text-[#F59E0B] mr-2">
+                                                <!-- 4 stars -->
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                </svg>
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                </svg>
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                </svg>
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                </svg>
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-300" viewBox="0 0 20 20" fill="currentColor">
+                                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                </svg>
+                                            </div>
+                                            <span class="text-gray-500 text-sm">1 month ago</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <h5 class="font-medium mb-2">Excellent quality</h5>
+                                <p class="text-gray-600">The wood grain is beautiful and the construction is solid. Took a bit longer to arrive than expected but worth the wait. Would recommend to anyone looking for authentic Ethiopian craftsmanship.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="shipping" class="tab-content hidden">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h3 class="text-xl font-bold mb-4">Shipping Information</h3>
+                            <p class="text-gray-600 mb-4">We ship nationwide within Ethiopia. International shipping is available upon request with additional charges.</p>
+                            <ul class="list-disc list-inside text-gray-600 space-y-2 mb-6">
+                                <li>Standard delivery: 5-7 business days after production</li>
+                                <li>Express delivery: 2-3 business days (additional charge)</li>
+                                <li>Free pickup available at our Addis Ababa showroom</li>
+                            </ul>
+                            <p class="text-gray-600">Large items may require professional assembly upon delivery (additional service available).</p>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-4">Returns & Exchanges</h3>
+                            <p class="text-gray-600 mb-4">We want you to be completely satisfied with your purchase.</p>
+                            <ul class="list-disc list-inside text-gray-600 space-y-2">
+                                <li>30-day return policy for unused items</li>
+                                <li>Custom and made-to-order items are final sale</li>
+                                <li>Return shipping is the responsibility of the customer</li>
+                                <li>Damaged items will be replaced at no cost</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Related Products -->
+            <div class="mt-16">
+                <h3 class="text-2xl font-bold mb-8">You May Also Like</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8" id="related-products">
+                    <!-- Related products will be loaded via JavaScript -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Same footer as index.html -->
+    <!-- Same cart sidebar as index.html -->
+
+    <!-- Scripts -->
+    <script src="../assets/js/product.js"></script>
+    <script src="../assets/js/cart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get product ID from URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('id');
+            
+            // Load product data
+            if (productId) {
+                loadProductDetail(productId);
+                loadRelatedProducts(productId);
+            } else {
+                // Redirect to shop if no product ID
+                window.location.href = 'shop.html';
+            }
+            
+            // Tab functionality
+            document.querySelectorAll('.tab-button').forEach(button => {
+                button.addEventListener('click', function() {
+                    // Update active tab button
+                    document.querySelectorAll('.tab-button').forEach(btn => {
+                        btn.classList.remove('active');
+                        btn.classList.add('border-transparent', 'text-gray-500');
+                        btn.classList.remove('border-[#7B5E57]', 'text-[#7B5E57]');
+                    });
+                    this.classList.add('active', 'border-[#7B5E57]', 'text-[#7B5E57]');
+                    this.classList.remove('border-transparent', 'text-gray-500');
+                    
+                    // Show corresponding tab content
+                    const tabId = this.getAttribute('data-tab');
+                    document.querySelectorAll('.tab-content').forEach(content => {
+                        content.classList.add('hidden');
+                        content.classList.remove('active');
+                    });
+                    document.getElementById(tabId).classList.remove('hidden');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+            
+            // Quantity controls
+            document.getElementById('detail-increase-qty').addEventListener('click', function() {
+                const qtyElement = document.getElementById('detail-qty');
+                let qty = parseInt(qtyElement.textContent);
+                qtyElement.textContent = qty + 1;
+            });
+            
+            document.getElementById('detail-decrease-qty').addEventListener('click', function() {
+                const qtyElement = document.getElementById('detail-qty');
+                let qty = parseInt(qtyElement.textContent);
+                if (qty > 1) {
+                    qtyElement.textContent = qty - 1;
+                }
+            });
+            
+            // Add to cart button
+            document.getElementById('add-to-cart-detail').addEventListener('click', function() {
+                const qty = parseInt(document.getElementById('detail-qty').textContent);
+                addToCart(productId, qty);
+                updateCartCount();
+                showAddedToCartNotification(document.getElementById('product-title').textContent);
+            });
+        });
+        
+        // Load product detail
+        function loadProductDetail(productId) {
+            const product = products.find(p => p.id == productId);
+            if (!product) return;
+            
+            // Set main content
+            document.getElementById('product-title').textContent = product.name;
+            document.getElementById('product-price').textContent = product.price;
+            document.getElementById('product-description').textContent = product.description;
+            document.getElementById('full-description').textContent = `${product.description} This piece is handcrafted by artisans in ${product.location} using traditional Ethiopian techniques combined with modern design principles.`;
+            document.getElementById('production-time').textContent = `Ready in ${product.productionTime}`;
+            document.getElementById('product-origin').textContent = `Made in ${product.location}`;
+            document.getElementById('product-dimensions').textContent = product.dimensions;
+            
+            // Set materials list
+            const materialsList = document.getElementById('materials-list');
+            materialsList.innerHTML = '';
+            product.materials.forEach(material => {
+                const li = document.createElement('li');
+                li.textContent = material;
+                materialsList.appendChild(li);
+            });
+            
+            // Set specifications
+            const dims = product.dimensions.match(/(\d+)cm/g);
+            if (dims && dims.length >= 3) {
+                document.getElementById('spec-height').textContent = dims[2];
+                document.getElementById('spec-width').textContent = dims[0];
+                document.getElementById('spec-depth').textContent = dims[1];
+            }
+            document.getElementById('spec-material').textContent = product.materials.join(', ');
+            document.getElementById('spec-weight').textContent = 'Approx. ' + (product.id * 15 + 20) + ' kg';
+            
+            // Set rating stars
+            const ratingContainer = document.getElementById('product-rating');
+            ratingContainer.innerHTML = '';
+            for (let i = 0; i < 5; i++) {
+                const star = document.createElement('svg');
+                star.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+                star.setAttribute('class', 'h-5 w-5');
+                star.setAttribute('viewBox', '0 0 20 20');
+                star.setAttribute('fill', 'currentColor');
+                star.innerHTML = `<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />`;
+                if (i >= product.rating) {
+                    star.classList.add('text-gray-300');
+                }
+                ratingContainer.appendChild(star);
+            }
+            
+            // Set review count
+            document.getElementById('review-count').textContent = `${product.reviews} reviews`;
+            
+            // Set images
+            document.getElementById('main-image').src = product.images[0];
+            for (let i = 0; i < 4; i++) {
+                const thumb = document.getElementById(`thumb-${i+1}`);
+                if (product.images[i]) {
+                    thumb.src = product.images[i];
+                    thumb.style.display = 'block';
+                    thumb.addEventListener('click', () => {
+                        document.getElementById('main-image').src = product.images[i];
+                        document.querySelectorAll('.thumb-image').forEach(t => t.classList.remove('border-[#7B5E57]'));
+                        thumb.classList.add('border-[#7B5E57]');
+                    });
+                } else {
+                    thumb.style.display = 'none';
+                }
+            }
+        }
+        
+        // Load related products
+        function loadRelatedProducts(currentProductId) {
+            const container = document.getElementById('related-products');
+            if (!container) return;
+            
+            // Get 4 random related products (excluding current product)
+            const relatedProducts = products
+                .filter(p => p.id != currentProductId)
+                .sort(() => 0.5 - Math.random())
+                .slice(0, 4);
+            
+            container.innerHTML = '';
+            
+            relatedProducts.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card group relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition duration-300';
+                productCard.innerHTML = `
+                    <div class="relative h-80 overflow-hidden">
+                        <img src="${product.images[0]}" alt="${product.name}" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
+                        <div class="product-overlay absolute inset-0 bg-black bg-opacity-50 opacity-0 transition duration-300 flex items-center justify-center">
+                            <a href="product.html?id=${product.id}" class="bg-white text-[#7B5E57] px-4 py-2 rounded-md font-medium">
+                                View Details
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-1">${product.name}</h3>
+                        <p class="text-[#A3B18A] mb-2">${product.origin}</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-[#7B5E57]">${product.price}</span>
+                            <button class="add-to-cart" data-id="${product.id}">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[#7B5E57] hover:text-[#A3B18A]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(productCard);
+            });
+            
+            // Add event listeners to add to cart buttons
+            document.querySelectorAll('.add-to-cart').forEach(button => {
+                button.addEventListener('click', function() {
+                    const productId = this.getAttribute('data-id');
+                    addToCart(productId);
+                    updateCartCount();
+                });
+            });
+        }
+    </script>
+</body>
+</html>

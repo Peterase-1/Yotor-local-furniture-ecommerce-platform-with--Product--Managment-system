@@ -1,0 +1,33 @@
+[
+    {
+        "id": 1,
+        "name": "አልጋ | Minimalist Bed Frame",
+        "price": 1250,
+        "description": "Handcrafted minimalist bed frame made from sustainably sourced Ethiopian Wanza wood. Features clean lines and a floating design.",
+        "material": "Wanza Wood",
+        "location": "Addis Ababa",
+        "productionTime": 4,
+        "images": [
+            "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80",
+            "https://images.unsplash.com/photo-1566666395328-61b8b098eac5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80",
+            "https://images.unsplash.com/photo-1616627561839-074385245ff6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
+        ],
+        "category": "bedroom",
+        "specs": ["Weight: 50kg", "Assembly Required: Yes"]
+    },
+    {
+        "id": 2,
+        "name": "መኝታ | Lounge Chair",
+        "price": 850,
+        "description": "Elegant lounge chair with traditional Ethiopian weaving techniques adapted to contemporary design.",
+        "material": "Teak Wood",
+        "location": "Hawassa",
+        "productionTime": 3,
+        "images": [
+            "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80",
+            "https://images.unsplash.com/photo-1592078615290-033ee584e267?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
+        ],
+        "category": "living",
+        "specs": ["Weight: 20kg", "Assembly Required: No"]
+    }
+]

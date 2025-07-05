@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZENEBE | Admin Dashboard</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: 'Manrope', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .admin-nav a.active {
+            border-bottom: 2px solid #7B5E57;
+            color: #7B5E57;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-[#7B5E57]">
+    <!-- Admin Navigation -->
+    <nav class="fixed w-full bg-white shadow-sm z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-xl font-bold">Yotor Admin</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="index.html" class="text-sm font-medium hover:text-[#A3B18A] transition">View Site</a>
+                    <button id="admin-logout" class="text-sm font-medium hover:text-[#A3B18A] transition">Logout</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="pt-16 flex">
+        <!-- Sidebar -->
+        <div class="w-64 bg-white shadow-sm h-screen fixed hidden md:block">
+            <div class="p-4 border-b border-gray-200">
+                <h3 class="font-bold">Admin Dashboard</h3>
+            </div>
+            <nav class="p-4 space-y-2">
+                <a href="#" class="block py-2 px-3 rounded admin-nav active" data-section="products">Products</a>
+                <a href="#" class="block py-2 px-3 rounded admin-nav" data-section="orders">Orders</a>
+                <a href="#" class="block py-2 px-3 rounded admin-nav" data-section="design-requests">Design Requests</a>
+                <a href="#" class="block py-2 px-3 rounded admin-nav" data-section="messages">Messages</a>
+                <a href="#" class="block py-2 px-3 rounded admin-nav" data-section="reviews">Reviews</a>
+            </nav>
+        </div>
+
+        <!-- Mobile Sidebar -->
+        <div id="mobile-admin-nav" class="fixed inset-0 bg-white z-40 pt-16 px-4 hidden">
+            <div class="flex flex-col space-y-4 py-4">
+                <button class="md:hidden absolute top-4 right-4" id="close-mobile-admin">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+                <a href="#" class="py-2 px-3 rounded admin-nav active" data-section="products">Products</a>
+                <a href="#" class="py-2 px-3 rounded admin-nav" data-section="orders">Orders</a>
+                <a href="#" class="py-2 px-3 rounded admin-nav" data-section="design-requests">Design Requests</a>
+                <a href="#" class="py-2 px-3 rounded admin-nav" data-section="messages">Messages</a>
+                <a href="#" class="py-2 px-3 rounded admin-nav" data-section="reviews">Reviews</a>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button class="md:hidden fixed bottom-4 right-4 bg-[#7B5E57] text-white p-3 rounded-full shadow-lg z-40" id="mobile-admin-button">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
+
+        <!-- Main Content -->
+        <div class="flex-1 md:ml-64">
+            <!-- Products Section -->
+            <section id="products-section" class="admin-section p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold">Product Management</h2>
+                    <button id="add-product-btn" class="bg-[#7B5E57] hover:bg-[#6a514b] text-white px-4 py-2 rounded-md font-medium transition">
+                        Add New Product
+                    </button>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow overflow-hidden">
+                    <table class="min-w-full divide-y divide-gray-200" id="products-table">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Image</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Category</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Price</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Location</th>
+                                <th scope="col" class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="products-table-body" class="bg-white divide-y divide-gray-200">
+                            <!-- Products will be loaded via JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Orders Section -->
+            <section id="orders-section" class="admin-section p-6 hidden">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold">Order Management</h2>
+                    <div class="relative">
+                        <select id="order-filter" class="appearance-none bg-white border border-gray-300 rounded-md pl-4 pr-8 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#7B5E57] focus:border-[#7B5E57]">
+                            <option value="all">All Orders</option>
+                            <option value="pending">Pending</option>
+                            <option value="processing">Processing</option>
+                            <option value="completed">Completed</option>
+                            <option value="cancelled">Cancelled</option>
+                        </select>
+                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow overflow-hidden">
+                    <table class="min-w-full divide-y divide-gray-200" id="orders-table">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Order #</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Customer</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Items</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                                <th scope="col" class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="orders-table-body" class="bg-white divide-y divide-gray-200">
+                            <!-- Orders will be loaded via JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Design Requests Section -->
+            <section id="design-requests-section" class="admin-section p-6 hidden">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold">Design Requests</h2>
+                    <div class="relative">
+                        <select id="request-filter" class="appearance-none bg-white border border-gray-300 rounded-md pl-4 pr-8 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#7B5E57] focus:border-[#7B5E57]">
+                            <option value="all">All Requests</option>
+                            <option value="pending">Pending</option>
+                            <option value="in-progress">In Progress</option>
+                            <option value="completed">Completed</option>
+                        </select>
+                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow overflow-hidden">
+                    <div id="design-requests-container" class="p-4">
+                        <p class="text-center py-8">Design requests will appear here</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Messages Section -->
+            <section id="messages-section" class="admin-section p-6 hidden">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold">Customer Messages</h2>
+                    <div class="relative">
+                        <select id="message-filter" class="appearance-none bg-white border border-gray-300 rounded-md pl-4 pr-8 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#7B5E57] focus:border-[#7B5E57]">
+                            <option value="all">All Messages</option>
+                            <option value="unread">Unread</option>
+                            <option value="read">Read</option>
+                        </select>
+                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow overflow-hidden">
+                    <div id="messages-container" class="p-4">
+                        <!-- Messages will be loaded here -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Reviews Section -->
+            <section id="reviews-section" class="admin-section p-6 hidden">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold">Product Reviews</h2>
+                    <div class="relative">
+                        <select id="review-filter" class="appearance-none bg-white border border-gray-300 rounded-md pl-4 pr-8 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#7B5E57] focus:border-[#7B5E57]">
+                            <option value="all">All Reviews</option>
+                            <option value="5">5 Stars</option>
+                            <option value="4">4 Stars</option>
+                            <option value="3">3 Stars</option>
+                            <option value="2">2 Stars</option>
+                            <option value="1">1 Star</option>
+                        </select>
+                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow overflow-hidden">
+                    <div id="reviews-container" class="p-4">
+                        <p class="text-center py-8">Product reviews will appear here</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Add Product Modal -->
+    <div id="product-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 id="modal-title" class="text-xl font-bold">Add New Product</h3>
+                    <button id="close-modal" class="text-gray-500 hover:text-gray-700">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                
+                <form id="product-form" class="space-y-4">
+                    <input type="hidden" id="product-id">
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="product-name" class="block text-sm font-medium text-gray-700">Product Name *</label>
+                            <input type="text" id="product-name" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-[#7B5E57] focus:border-[#7B5E57]">
+                        </div>
+                        
+                        <div>
+                            <label for="product-category" class="block text-sm font-medium text-gray-700">Category *</label>
+                            <select id="product-category" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-[#7B5E57] focus:border-[#7B5E57]">
+                                <option value="living">Living Room</option>
+                                <option value="dining">Dining</option>
+                                <option value="bedroom">Bedroom</option>
+                                <option value="office">Office</option>
+                                <option value="outdoor">Outdoor</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="product-price" class="block text-sm font-medium text-gray-700">Price ($) *</label>
+                            <input type="number" id="product-price" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-[#7B5E57] focus:border-[#7B5E57]">
+                        </div>
+                        
+                        <div>
+                            <label for="product-location" class="block text-sm font-medium text-gray-700">Location (Origin) *</label>
+                            <input type="text" id="product-location" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-[#7B5E57] focus:border-[#7B5E57]">
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="production-time" class="block text-sm font-medium text-gray-700">Production Time *</label>
+                            <input type="text" id="production-time" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-[#7B5E57] focus:border-[#7B5E57]">
+                        </div>
+                        
+                        <div>
+                            <label for="product-origin" class="block text-sm font-medium text-gray-700">Origin Collection *</label>
+                            <input type="text" id="product-origin" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-[#7B5E57] focus:border-[#7B5E57]">
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="product-rating" class="block text-sm font-medium text-gray-700">Rating (1-5)</label>
+                            <select id="product-rating" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-[#7B5E57] focus:border-[#7B5E57]">
+                                <option value="5">5 Stars</option>
+                                <option value="4">4 Stars</option>
+                                <option value="3">3 Stars</option>
+                                <option value="2">2 Stars</option>
+                                <option value="1">1 Star</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="product-reviews" class="block text-sm font-medium text-gray-700">Number of Reviews</label>
+                            <input type="number" id="product-reviews" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-[#7B5E57] focus:border-[#7B5E57]">
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label for="product-material" class="block text-sm font-medium text-gray-700">Materials (comma separated) *</label>
+                        <input type="text" id="product-material" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-[#7B5E57] focus:border-[#7B5E57]">
+                    </div>
+                    
+                    <div>
+                        <label for="product-dimensions" class="block text-sm font-medium text-gray-700">Dimensions (e.g., 120cm x 80cm x 45cm)</label>
+                        <input type="text" id="product-dimensions" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-[#7B5E57] focus:border-[#7B5E57]">
+                    </div>
+                    
+                    <div>
+                        <label for="product-weight" class="block text-sm font-medium text-gray-700">Weight (e.g., 15kg)</label>
+                        <input type="text" id="product-weight" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-[#7B5E57] focus:border-[#7B5E57]">
+                    </div>
+                    
+                    <div>
+                        <label for="product-description" class="block text-sm font-medium text-gray-700">Description *</label>
+                        <textarea id="product-description" rows="3" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-[#7B5E57] focus:border-[#7B5E57]"></textarea>
+                    </div>
+                    
+                    <div>
+                        <label for="product-images" class="block text-sm font-medium text-gray-700">Image URLs (one per line) *</label>
+                        <textarea id="product-images" rows="3" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-[#7B5E57] focus:border-[#7B5E57]"></textarea>
+                    </div>
+                    
+                    <div>
+                        <label for="product-specs" class="block text-sm font-medium text-gray-700">Specifications (one per line)</label>
+                        <textarea id="product-specs" rows="3" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-[#7B5E57] focus:border-[#7B5E57]"></textarea>
+                    </div>
+                    
+                    <div class="flex justify-end space-x-3 pt-4">
+                        <button type="button" id="cancel-modal" class="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#7B5E57]">
+                            Cancel
+                        </button>
+                        <button type="submit" class="bg-[#7B5E57] py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white hover:bg-[#6a514b] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#7B5E57]">
+                            Save Product
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Order Details Modal -->
+    <div id="order-details-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="p-6">
+                <div id="order-details-content">
+                    <!-- Order details will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../assets/js/products.js"></script>
+    <script src="../assets/js/admin.js"></script>
+</body>
+</html>

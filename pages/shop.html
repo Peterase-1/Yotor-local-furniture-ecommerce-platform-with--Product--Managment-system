@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZENEBE | Ethiopian Luxury Furniture</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Manrope', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #FFFFFF 0%, #F5F5F5 100%);
+        }
+        .product-card:hover .product-overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .line-clamp-1 {
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body class="bg-white text-[#7B5E57]">
+    <!-- Same navigation as index.html -->
+
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden fixed inset-0 bg-white z-40 pt-24 px-4">
+        <div class="flex flex-col space-y-6 text-xl">
+            <a href="index.html" class="border-b border-gray-100 py-2">Home</a>
+            <a href="shop.html" class="border-b border-gray-100 py-2">Shop</a>
+            <a href="design.html" class="border-b border-gray-100 py-2">Custom Design</a>
+            <a href="about.html" class="border-b border-gray-100 py-2">About</a>
+            <a href="contact.html" class="border-b border-gray-100 py-2">Contact</a>
+        </div>
+    </div>
+
+    <!-- Breadcrumbs -->
+
+    <main class="pt-24 pb-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <nav class="flex mb-6" aria-label="Breadcrumb">
+                <ol class="inline-flex items-center space-x-1 md:space-x-3">
+                    <li class="inline-flex items-center">
+                        <a href="index.html" class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-[#7B5E57]">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+                            </svg>
+                            Home
+                        </a>
+                    </li>
+                    <li aria-current="page">
+                        <div class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                            </svg>
+                            <span class="ml-1 text-sm font-medium text-gray-500 md:ml-2">Shop</span>
+                        </div>
+                    </li>
+                </ol>
+            </nav>
+            
+            <!-- Shop Header -->
+            <div class="mb-12">
+                <h1 class="text-4xl font-bold mb-4">Our Collections</h1>
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-end">
+                    <p class="text-gray-600 max-w-2xl">Each piece is crafted with care by Ethiopian artisans using sustainable materials and traditional techniques.</p>
+                    <div class="mt-4 md:mt-0 flex space-x-4">
+                        <div class="relative">
+                            <select id="category-filter" class="appearance-none bg-white border border-gray-300 rounded-md pl-4 pr-8 py-2 text-base focus:outline-none focus:ring-2 focus:ring-[#7B5E57] focus:border-[#7B5E57]">
+                                <option value="all">All Categories</option>
+                                <option value="living">Living Room</option>
+                                <option value="dining">Dining</option>
+                                <option value="bedroom">Bedroom</option>
+                                <option value="office">Office</option>
+                                <option value="outdoor">Outdoor</option>
+                            </select>
+                            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="relative">
+                            <select id="sort-by" class="appearance-none bg-white border border-gray-300 rounded-md pl-4 pr-8 py-2 text-base focus:outline-none focus:ring-2 focus:ring-[#7B5E57] focus:border-[#7B5E57]">
+                                <option value="featured">Featured</option>
+                                <option value="price-low">Price: Low to High</option>
+                                <option value="price-high">Price: High to Low</option>
+                                <option value="newest">Newest</option>
+                            </select>
+                            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Search and Filters -->
+            <div class="mb-8">
+                <div class="relative max-w-md mb-6">
+                    <input type="text" id="search-products" placeholder="Search products..." class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#7B5E57] focus:border-[#7B5E57]">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                    <button class="filter-btn active py-2 px-4 rounded-md border border-[#7B5E57] text-[#7B5E57] font-medium" data-filter="all">All</button>
+                    <button class="filter-btn py-2 px-4 rounded-md border border-gray-300 text-gray-600 font-medium" data-filter="living">Living Room</button>
+                    <button class="filter-btn py-2 px-4 rounded-md border border-gray-300 text-gray-600 font-medium" data-filter="dining">Dining</button>
+                    <button class="filter-btn py-2 px-4 rounded-md border border-gray-300 text-gray-600 font-medium" data-filter="bedroom">Bedroom</button>
+                </div>
+                
+                <div class="flex items-center justify-between mb-6">
+                    <p id="product-count" class="text-gray-600">Loading products...</p>
+                    <div class="flex items-center">
+                        <span class="mr-2 text-gray-600">View:</span>
+                        <button id="grid-view" class="p-1 mr-2 text-[#7B5E57]">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                            </svg>
+                        </button>
+                        <button id="list-view" class="p-1 text-gray-400">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Products Grid -->
+            <div id="products-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <!-- Products will be loaded via JavaScript -->
+            </div>
+            
+            <!-- Pagination -->
+            <div class="mt-12 flex justify-center">
+                <nav class="inline-flex rounded-md shadow">
+                    <a href="#" class="px-3 py-2 rounded-l-md border border-gray-300 bg-white text-gray-500 hover:bg-gray-50">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                    <a href="#" class="px-4 py-2 border-t border-b border-gray-300 bg-white text-[#7B5E57] font-medium">1</a>
+                    <a href="#" class="px-4 py-2 border border-gray-300 bg-white text-gray-500 hover:bg-gray-50">2</a>
+                    <a href="#" class="px-4 py-2 border-t border-b border-gray-300 bg-white text-gray-500 hover:bg-gray-50">3</a>
+                    <a href="#" class="px-3 py-2 rounded-r-md border border-gray-300 bg-white text-gray-500 hover:bg-gray-50">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </main>
+
+    <!-- Same footer as index.html -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">ZENEBE</h3>
+                    <p class="text-gray-400">Ethiopian luxury furniture blending traditional craftsmanship with contemporary design.</p>
+                    <div class="flex space-x-4 mt-6">
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Shop</h4>
+                    <ul class="space-y-2">
+                        <li><a href="shop.html?category=living" class="text-gray-400 hover:text-white transition">Living Room</a></li>
+                        <li><a href="shop.html?category=dining" class="text-gray-400 hover:text-white transition">Dining Room</a></li>
+                        <li><a href="shop.html?category=bedroom" class="text-gray-400 hover:text-white transition">Bedroom</a></li>
+                        <li><a href="shop.html?category=office" class="text-gray-400 hover:text-white transition">Office</a></li>
+                        <li><a href="shop.html?category=outdoor" class="text-gray-400 hover:text-white transition">Outdoor</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Company</h4>
+                    <ul class="space-y-2">
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition">About Us</a></li>
+                        <li><a href="about.html#craftsmanship" class="text-gray-400 hover:text-white transition">Our Craftsmanship</a></li>
+                        <li><a href="about.html#sustainability" class="text-gray-400 hover:text-white transition">Sustainability</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition">Contact</a></li>
+                        <li><a href="design.html" class="text-gray-400 hover:text-white transition">Custom Design</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-start">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+                            </svg>
+                            <span>Bole Road, Addis Ababa, Ethiopia</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                            </svg>
+                            <span>+251 911 234 567</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                            </svg>
+                            <span>info@zenebefurniture.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400">© 2023 ZENEBE Furniture. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-white transition">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">Shipping Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Same cart sidebar as index.html -->
+    <div id="cart-sidebar" class="fixed inset-y-0 right-0 w-full md:w-96 bg-white shadow-xl z-50 transform translate-x-full transition-transform duration-300 ease-in-out overflow-y-auto">
+        <div class="p-6">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-xl font-bold">Your Cart</h3>
+                <button id="close-cart" class="text-gray-500 hover:text-gray-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <div id="cart-items" class="space-y-4">
+                <!-- Cart items will be loaded via JavaScript -->
+                <p class="text-gray-500 text-center py-8" id="empty-cart-message">Your cart is empty</p>
+            </div>
+            <div class="border-t border-gray-200 mt-6 pt-6">
+                <div class="flex justify-between mb-2">
+                    <span class="text-gray-600">Subtotal</span>
+                    <span id="cart-subtotal" class="font-medium">$0.00</span>
+                </div>
+                <div class="flex justify-between mb-4">
+                    <span class="text-gray-600">Shipping</span>
+                    <span class="font-medium">Calculated at checkout</span>
+                </div>
+                <div class="flex justify-between text-lg font-bold mb-6">
+                    <span>Total</span>
+                    <span id="cart-total">$0.00</span>
+                </div>
+                <a href="checkout.html" class="block w-full bg-[#7B5E57] hover:bg-[#6a514b] text-white text-center py-3 rounded-md font-medium transition">Checkout</a>
+                <a href="shop.html" class="block w-full border border-[#7B5E57] text-[#7B5E57] hover:bg-gray-50 text-center py-3 rounded-md font-medium transition mt-3">Continue Shopping</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Same product modal as index.html -->
+    <div id="product-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="relative">
+                <button id="close-modal" class="absolute top-4 right-4 bg-white rounded-full p-2 shadow-md z-10">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+                <div class="grid md:grid-cols-2 gap-8 p-8">
+                    <div class="space-y-4">
+                        <img id="modal-image" src="" alt="" class="w-full h-96 object-cover rounded-lg">
+                        <div class="grid grid-cols-4 gap-2" id="modal-thumbnails">
+                            <!-- Thumbnails will be added here -->
+                        </div>
+                    </div>
+                    <div>
+                        <h3 id="modal-title" class="text-2xl font-bold mb-2"></h3>
+                        <div class="flex items-center mb-4">
+                            <div class="flex text-[#F59E0B]">
+                                <!-- Stars will be added via JavaScript -->
+                            </div>
+                            <span id="modal-reviews" class="text-gray-500 ml-2 text-sm"></span>
+                        </div>
+                        <p id="modal-price" class="text-2xl font-bold text-[#7B5E57] mb-4"></p>
+                        <p id="modal-description" class="text-gray-600 mb-6"></p>
+                        
+                        <div class="space-y-4 mb-6">
+                            <div>
+                                <h4 class="font-medium mb-2">Materials</h4>
+                                <p id="modal-materials" class="text-gray-600"></p>
+                            </div>
+                            <div>
+                                <h4 class="font-medium mb-2">Dimensions</h4>
+                                <p id="modal-dimensions" class="text-gray-600"></p>
+                            </div>
+                            <div>
+                                <h4 class="font-medium mb-2">Origin</h4>
+                                <p id="modal-origin" class="text-gray-600"></p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center space-x-4 mb-6">
+                            <div class="flex items-center border border-gray-200 rounded">
+                                <button class="px-3 py-1 text-xl" id="decrease-qty">-</button>
+                                <span class="px-3 py-1 border-x border-gray-200" id="product-qty">1</span>
+                                <button class="px-3 py-1 text-xl" id="increase-qty">+</button>
+                            </div>
+                            <button id="add-to-cart-modal" class="bg-[#7B5E57] hover:bg-[#6a514b] text-white px-6 py-2 rounded-md font-medium transition flex-1">
+                                Add to Cart
+                            </button>
+                        </div>
+                        
+                        <div class="border-t border-gray-200 pt-4">
+                            <div class="flex items-center text-gray-600">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+                                </svg>
+                                <span id="modal-location"></span>
+                            </div>
+                            <div class="flex items-center text-gray-600 mt-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
+                                </svg>
+                                <span id="modal-delivery"></span>
+                            </div>
+                        </div>
+
+                        <div class="mt-8">
+                            <h4 class="font-bold mb-4">Related Products</h4>
+                            <div class="grid grid-cols-2 gap-4" id="related-products-container">
+                                <!-- Related products will be loaded here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../assets/js/app.js"></script>
+    <script src="../assets/js/product.js"></script>
+    <script src="../assets/js/cart.js"></script>
+    
+    <script>
+        // Load all products
+        function loadAllProducts() {
+            const container = document.getElementById('products-container');
+            if (!container) return;
+
+            // Get products from localStorage (admin-added) and default products
+            const savedProducts = JSON.parse(localStorage.getItem('products')) || [];
+            const defaultProducts = window.products || [];
+            
+            // Merge and deduplicate products
+            const allProducts = [...savedProducts, ...defaultProducts].filter(
+                (product, index, self) => 
+                    index === self.findIndex(p => p.id === product.id)
+            );
+
+            // Render products
+            container.innerHTML = '';
+            allProducts.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-100';
+                productCard.setAttribute('data-category', product.category);
+                productCard.innerHTML = `
+                    <div class="relative h-60 overflow-hidden group">
+                        <img src="${product.images[0]}" alt="${product.name}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                            <button class="view-details w-full bg-white text-[#7B5E57] py-2 rounded-md font-medium transition hover:bg-[#f8f5f2]" data-id="${product.id}">
+                                Quick View
+                            </button>
+                        </div>
+                        
+                        <div class="absolute top-3 right-3 bg-[#7B5E57] text-white px-2 py-1 rounded-md text-xs font-medium">
+                            ${product.origin}
+                        </div>
+                    </div>
+                    
+                    <div class="p-4">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="font-bold text-lg mb-1 line-clamp-1">${product.name}</h3>
+                                <p class="text-[#A3B18A] text-sm capitalize">${product.category}</p>
+                            </div>
+                            <button class="add-to-cart p-2 rounded-full hover:bg-gray-100 transition" data-id="${product.id}">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#7B5E57]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                                </svg>
+                            </button>
+                        </div>
+                        
+                        <div class="mt-3 flex justify-between items-center">
+                            <span class="font-bold text-lg text-[#7B5E57]">${product.price}</span>
+                            <div class="flex items-center">
+                                ${renderStars(product.rating)}
+                                <span class="text-gray-500 text-sm ml-1">(${product.reviews})</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(productCard);
+            });
+
+            // Update product count
+            document.getElementById('product-count').textContent = `${allProducts.length} products`;
+            
+            // Add event listeners
+            addProductEventListeners();
+        }
+
+        function renderStars(rating) {
+            let stars = '';
+            for (let i = 1; i <= 5; i++) {
+                stars += `<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ${i <= rating ? 'text-[#F59E0B]' : 'text-gray-300'}" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                </svg>`;
+            }
+            return stars;
+        }
+
+        // Filter products by category
+        function filterProducts(category) {
+            const allProducts = document.querySelectorAll('.product-card');
+            let visibleCount = 0;
+            
+            allProducts.forEach(product => {
+                if (category === 'all' || product.getAttribute('data-category') === category) {
+                    product.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+            
+            document.getElementById('product-count').textContent = `${visibleCount} products`;
+        }
+
+        // Search products
+        function searchProducts(query) {
+            const allProducts = document.querySelectorAll('.product-card');
+            let visibleCount = 0;
+            const lowerQuery = query.toLowerCase();
+            
+            allProducts.forEach(product => {
+                const name = product.querySelector('h3').textContent.toLowerCase();
+                const category = product.querySelector('p').textContent.toLowerCase();
+                
+                if (name.includes(lowerQuery) || category.includes(lowerQuery)) {
+                    product.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+            
+            document.getElementById('product-count').textContent = `${visibleCount} products`;
+        }
+
+        // Sort products
+        function sortProducts(method) {
+            const container = document.getElementById('products-container');
+            const productCards = Array.from(container.querySelectorAll('.product-card')).filter(card => card.style.display !== 'none');
+            
+            productCards.sort((a, b) => {
+                switch(method) {
+                    case 'price-low':
+                        const priceA = parseFloat(a.querySelector('.text-lg').textContent.replace(/[^0-9.]/g, ''));
+                        const priceB = parseFloat(b.querySelector('.text-lg').textContent.replace(/[^0-9.]/g, ''));
+                        return priceA - priceB;
+                    case 'price-high':
+                        const priceAHigh = parseFloat(a.querySelector('.text-lg').textContent.replace(/[^0-9.]/g, ''));
+                        const priceBHigh = parseFloat(b.querySelector('.text-lg').textContent.replace(/[^0-9.]/g, ''));
+                        return priceBHigh - priceAHigh;
+                    case 'newest':
+                        const idA = parseInt(a.querySelector('.add-to-cart').getAttribute('data-id'));
+                        const idB = parseInt(b.querySelector('.add-to-cart').getAttribute('data-id'));
+                        return idB - idA;
+                    case 'featured':
+                    default:
+                        return Math.random() - 0.5; // Random sort for featured
+                }
+            });
+            
+            // Re-append sorted products
+            productCards.forEach(card => container.appendChild(card));
+        }
+
+        // Add event listeners to product buttons
+        function addProductEventListeners() {
+            document.querySelectorAll('.view-details').forEach(button => {
+                button.addEventListener('click', function() {
+                    try {
+                        const productId = this.getAttribute('data-id');
+                        if (!productId) {
+                            console.error('No product ID found on view details button');
+                            return;
+                        }
+                        window.location.href = `product.html?id=${productId}`;
+                    } catch (error) {
+                        console.error('Error handling view details:', error);
+                    }
+                });
+            });
+            
+            document.querySelectorAll('.add-to-cart').forEach(button => {
+                button.addEventListener('click', function() {
+                    const productId = this.getAttribute('data-id');
+                    addToCart(productId);
+                    updateCartCount();
+                    // Get product name for notification
+                    const productCard = this.closest('.product-card');
+                    const productName = productCard.querySelector('h3').textContent;
+                    showAddedToCartNotification(productName);
+                });
+            });
+        }
+
+        function showAddedToCartNotification(productName) {
+            const notification = document.createElement('div');
+            notification.className = 'fixed bottom-4 right-4 bg-[#7B5E57] text-white px-6 py-3 rounded-md shadow-lg flex items-center z-50';
+            notification.innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                ${productName} added to cart
+            `;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.classList.add('opacity-0', 'transition-opacity', 'duration-300');
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+        // Initialize shop page
+        document.addEventListener('DOMContentLoaded', function() {
+            loadAllProducts();
+            updateCartCount();
+            addProductEventListeners();
+            
+            // Filter buttons
+            document.querySelectorAll('.filter-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    document.querySelectorAll('.filter-btn').forEach(btn => {
+                        btn.classList.remove('active', 'border-[#7B5E57]', 'text-[#7B5E57]');
+                        btn.classList.add('border-gray-300', 'text-gray-600');
+                    });
+                    this.classList.add('active', 'border-[#7B5E57]', 'text-[#7B5E57]');
+                    this.classList.remove('border-gray-300', 'text-gray-600');
+                    filterProducts(this.getAttribute('data-filter'));
+                });
+            });
+            
+            // Search functionality
+            document.getElementById('search-products').addEventListener('input', function() {
+                searchProducts(this.value);
+            });
+            
+            // Category filter
+            document.getElementById('category-filter').addEventListener('change', function() {
+                filterProducts(this.value);
+            });
+            
+            // Sort by
+            document.getElementById('sort-by').addEventListener('change', function() {
+                sortProducts(this.value);
+            });
+            
+            // View toggle
+            document.getElementById('grid-view').addEventListener('click', function() {
+                document.getElementById('products-container').classList.remove('list-view');
+                this.classList.add('text-[#7B5E57]');
+                document.getElementById('list-view').classList.remove('text-[#7B5E57]');
+            });
+            
+            document.getElementById('list-view').addEventListener('click', function() {
+                document.getElementById('products-container').classList.add('list-view');
+                this.classList.add('text-[#7B5E57]');
+                document.getElementById('grid-view').classList.remove('text-[#7B5E57]');
+            });
+        });
+    </script>
+</body>
+</html>

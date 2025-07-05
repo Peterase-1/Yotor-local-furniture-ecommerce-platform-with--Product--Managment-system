@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yotor | Ethiopian Luxury Furniture</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Manrope', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #FFFFFF 0%, #F5F5F5 100%);
+        }
+        .product-card:hover .product-overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body class="bg-white text-[#7B5E57]">
+    <!-- Same navigation as index.html -->
+
+    <main class="pt-24 pb-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <nav class="flex mb-6" aria-label="Breadcrumb">
+                <ol class="inline-flex items-center space-x-1 md:space-x-3">
+                    <li class="inline-flex items-center">
+                        <a href="index.html" class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-[#7B5E57]">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+                            </svg>
+                            Home
+                        </a>
+                    </li>
+                    <li aria-current="page">
+                        <div class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                            </svg>
+                            <span class="ml-1 text-sm font-medium text-gray-500 md:ml-2">About Us</span>
+                        </div>
+                    </li>
+                </ol>
+            </nav>
+            
+            <!-- Hero Section -->
+            <div class="relative mb-16">
+                <div class="relative h-96 w-full overflow-hidden rounded-lg">
+                    <img src="https://images.unsplash.com/photo-1602872030490-4a484a7b3ba6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" 
+                         alt="Our Workshop" 
+                         class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-8">
+                        <h1 class="text-4xl font-bold text-white">Our Story</h1>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Our Story -->
+            <div class="mb-20">
+                <div class="grid md:grid-cols-2 gap-12 items-center mb-12">
+                    <div>
+                        <h2 class="text-2xl font-bold mb-6">Ethiopian Craftsmanship Since 2010</h2>
+                        <p class="text-gray-600 mb-4">Founded in Addis Ababa by master carpenter Zenebe Kebede, ZENEBE Furniture began as a small workshop dedicated to preserving traditional Ethiopian woodworking techniques while adapting them to contemporary designs.</p>
+                        <p class="text-gray-600 mb-4">What started as a one-man operation has grown into a collective of over 50 skilled artisans across Ethiopia, each bringing their unique regional styles and expertise to our collections.</p>
+                        <p class="text-gray-600">Today, we're proud to be one of Ethiopia's leading furniture makers, with our pieces gracing homes, offices, and hotels across the country and internationally.</p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="relative h-64 rounded-lg overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1600494603989-9650cf6ddd3d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1738&q=80" 
+                                 alt="Workshop" 
+                                 class="w-full h-full object-cover">
+                        </div>
+                        <div class="relative h-64 rounded-lg overflow-hidden mt-8">
+                            <img src="https://images.unsplash.com/photo-1600210492493-0946911123ea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1738&q=80" 
+                                 alt="Materials" 
+                                 class="w-full h-full object-cover">
+                        </div>
+                        <div class="relative h-64 rounded-lg overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" 
+                                 alt="Finished Product" 
+                                 class="w-full h-full object-cover">
+                        </div>
+                        <div class="relative h-64 rounded-lg overflow-hidden mt-8">
+                            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80" 
+                                 alt="Showroom" 
+                                 class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-[#F8F8F8] rounded-lg p-8 md:p-12">
+                    <h3 class="text-xl font-bold mb-4">Our Mission</h3>
+                    <p class="text-gray-600 mb-6">To preserve and modernize Ethiopian craftsmanship while creating sustainable livelihoods for artisans across the country. We believe in furniture that tells a story - of the hands that made it, the materials that form it, and the home it will become part of.</p>
+                    
+                    <h3 class="text-xl font-bold mb-4">Our Values</h3>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div>
+                            <h4 class="font-bold mb-2 flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#A3B18A] mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" />
+                                </svg>
+                                Sustainability
+                            </h4>
+                            <p class="text-gray-600">We use only ethically sourced materials from responsibly managed Ethiopian forests. All our finishes are non-toxic and environmentally friendly.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-2 flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#A3B18A] mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" />
+                                </svg>
+                                Craftsmanship
+                            </h4>
+                            <p class="text-gray-600">Each piece is handcrafted using traditional techniques passed down through generations, ensuring quality that lasts a lifetime.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-2 flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#A3B18A] mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" />
+                                </svg>
+                                Community
+                            </h4>
+                            <p class="text-gray-600">We invest in our artisans through fair wages, skill development, and opportunities for growth within our company.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Our Artisans -->
+            <div class="mb-20">
+                <h2 class="text-2xl font-bold mb-8 text-center">Meet Our Artisans</h2>
+                <div class="grid md:grid-cols-4 gap-8">
+                    <!-- Artisan 1 -->
+                    <div class="text-center">
+                        <div class="relative h-64 w-64 mx-auto mb-4 rounded-full overflow-hidden border-4 border-[#A3B18A]">
+                            <img src="https://images.unsplash.com/photo-1562788866-7e15a9a86ed4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" 
+                                 alt="Zenebe Kebede" 
+                                 class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="font-bold text-lg">Zenebe Kebede</h3>
+                        <p class="text-[#A3B18A] mb-2">Founder & Master Carpenter</p>
+                        <p class="text-gray-600 text-sm">From Addis Ababa, 25 years experience</p>
+                    </div>
+                    <!-- Artisan 2 -->
+                    <div class="text-center">
+                        <div class="relative h-64 w-64 mx-auto mb-4 rounded-full overflow-hidden border-4 border-[#A3B18A]">
+                            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=761&q=80" 
+                                 alt="Alemitu Tesfaye" 
+                                 class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="font-bold text-lg">Alemitu Tesfaye</h3>
+                        <p class="text-[#A3B18A] mb-2">Lead Designer</p>
+                        <p class="text-gray-600 text-sm">From Bahir Dar, 12 years experience</p>
+                    </div>
+                    <!-- Artisan 3 -->
+                    <div class="text-center">
+                        <div class="relative h-64 w-64 mx-auto mb-4 rounded-full overflow-hidden border-4 border-[#A3B18A]">
+                            <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=798&q=80" 
+                                 alt="Getachew Assefa" 
+                                 class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="font-bold text-lg">Getachew Assefa</h3>
+                        <p class="text-[#A3B18A] mb-2">Master Joiner</p>
+                        <p class="text-gray-600 text-sm">From Gonder, 18 years experience</p>
+                    </div>
+                    <!-- Artisan 4 -->
+                    <div class="text-center">
+                        <div class="relative h-64 w-64 mx-auto mb-4 rounded-full overflow-hidden border-4 border-[#A3B18A]">
+                            <img src="https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=776&q=80" 
+                                 alt="Tadesse Mekonnen" 
+                                 class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="font-bold text-lg">Tadesse Mekonnen</h3>
+                        <p class="text-[#A3B18A] mb-2">Finishing Specialist</p>
+                        <p class="text-gray-600 text-sm">From Hawassa, 10 years experience</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Workshop Tour -->
+            <div class="mb-20">
+                <h2 class="text-2xl font-bold mb-8 text-center">Our Workshop</h2>
+                <div class="relative h-96 w-full rounded-lg overflow-hidden mb-8">
+                    <img src="https://images.unsplash.com/photo-1602872030490-4a484a7b3ba6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" 
+                         alt="Our Workshop" 
+                         class="w-full h-full object-cover">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <button class="bg-white bg-opacity-90 text-[#7B5E57] px-6 py-3 rounded-md font-medium flex items-center hover:bg-opacity-100 transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+                            </svg>
+                            Take a Virtual Tour
+                        </button>
+                    </div>
+                </div>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-[#7B5E57] text-white p-6 rounded-lg">
+                        <h3 class="font-bold mb-2 text-lg">Addis Ababa</h3>
+                        <p class="mb-4">Main Workshop & Showroom</p>
+                        <p class="text-sm">Bole Road, next to Friendship Center</p>
+                        <p class="text-sm">Open Mon-Sat, 9am-6pm</p>
+                    </div>
+                    <div class="bg-[#A3B18A] text-white p-6 rounded-lg">
+                        <h3 class="font-bold mb-2 text-lg">Bahir Dar</h3>
+                        <p class="mb-4">Specialty Wood Workshop</p>
+                        <p class="text-sm">Near Tana Hotel, Lakeside</p>
+                        <p class="text-sm">Open Mon-Fri, 8am-5pm</p>
+                    </div>
+                    <div class="bg-[#7B5E57] text-white p-6 rounded-lg">
+                        <h3 class="font-bold mb-2 text-lg">Hawassa</h3>
+                        <p class="mb-4">Weaving & Upholstery Studio</p>
+                        <p class="text-sm">Piazza District, Main Street</p>
+                        <p class="text-sm">Open Mon-Sat, 9am-5pm</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sustainability -->
+            <div class="mb-20" id="sustainability">
+                <h2 class="text-2xl font-bold mb-8 text-center">Our Sustainability Commitment</h2>
+                <div class="grid md:grid-cols-2 gap-12 items-center mb-12">
+                    <div class="order-1 md:order-2">
+                        <h3 class="text-xl font-bold mb-4">Responsible Materials</h3>
+                        <p class="text-gray-600 mb-4">We source all our wood from sustainably managed Ethiopian forests and plantations. For every tree used in our furniture, we plant three new ones through our partnership with local reforestation initiatives.</p>
+                        <p class="text-gray-600">Our finishes are all water-based and non-toxic, safe for your family and the environment. The cotton we use is organically grown and handwoven by Ethiopian artisans.</p>
+                    </div>
+                    <div class="order-2 md:order-1">
+                        <img src="https://images.unsplash.com/photo-1600494603989-9650cf6ddd3d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1738&q=80" 
+                             alt="Sustainable Materials" 
+                             class="w-full rounded-lg shadow-xl">
+                    </div>
+                </div>
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">Waste Reduction</h3>
+                        <p class="text-gray-600 mb-4">In our workshops, nothing goes to waste. Wood scraps become smaller items like cutting boards or toys, sawdust is used for composting, and even our packaging materials are biodegradable or reusable.</p>
+                        <p class="text-gray-600">We repair and restore furniture whenever possible, and offer a buy-back program for pieces you no longer need, which we refurbish or responsibly recycle.</p>
+                    </div>
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1600210492493-0946911123ea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1738&q=80" 
+                             alt="Waste Reduction" 
+                             class="w-full rounded-lg shadow-xl">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonials -->
+            <div class="mb-20" id="testimonials">
+                <h2 class="text-2xl font-bold mb-8 text-center">Client Stories</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Testimonial 1 -->
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="flex items-center mb-4">
+                            <div class="flex text-[#F59E0B] mr-2">
+                                <!-- 5 stars -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4">"The ZENEBE team transformed our living room with their exquisite craftsmanship. The attention to detail is unmatched and we receive compliments daily on our coffee table."</p>
+                        <div class="flex items-center">
+                            <div class="bg-[#A3B18A] text-white rounded-full h-10 w-10 flex items-center justify-center font-bold mr-3">S</div>
+                            <div>
+                                <h4 class="font-bold">Selamawit Abebe</h4>
+                                <p class="text-gray-500 text-sm">Addis Ababa</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Testimonial 2 -->
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="flex items-center mb-4">
+                            <div class="flex text-[#F59E0B] mr-2">
+                                <!-- 5 stars -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4">"Our custom dining table is the heart of our home. The combination of traditional Ethiopian design with modern functionality is exactly what we were looking for."</p>
+                        <div class="flex items-center">
+                            <div class="bg-[#A3B18A] text-white rounded-full h-10 w-10 flex items-center justify-center font-bold mr-3">T</div>
+                            <div>
+                                <h4 class="font-bold">Tewodros Kassahun</h4>
+                                <p class="text-gray-500 text-sm">Bahir Dar</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Testimonial 3 -->
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="flex items-center mb-4">
+                            <div class="flex text-[#F59E0B] mr-2">
+                                <!-- 5 stars -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4">"The bed frame ZENEBE created for us is a work of art. The combination of traditional joinery techniques with modern design is exactly what we wanted. It's the centerpiece of our bedroom."</p>
+                        <div class="flex items-center">
+                            <div class="bg-[#A3B18A] text-white rounded-full h-10 w-10 flex items-center justify-center font-bold mr-3">M</div>
+                            <div>
+                                <h4 class="font-bold">Mekdes Hailu</h4>
+                                <p class="text-gray-500 text-sm">Hawassa</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Call to Action -->
+            <div class="bg-[#7B5E57] text-white rounded-lg p-8 md:p-12 text-center">
+                <h2 class="text-2xl font-bold mb-4">Ready to Start Your Project?</h2>
+                <p class="mb-8 max-w-2xl mx-auto">Whether you're looking for something from our collections or want to create a custom piece, we're here to help.</p>
+                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="shop.html" class="bg-white text-[#7B5E57] hover:bg-gray-100 px-6 py-3 rounded-md font-medium transition">Shop Collections</a>
+                    <a href="design.html" class="border border-white text-white hover:bg-white hover:text-[#7B5E57] px-6 py-3 rounded-md font-medium transition">Custom Design</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Same footer as index.html -->
+    <!-- Same cart sidebar as index.html -->
+
+    <!-- Scripts -->
+    <script src="../assets/js/products.js"></script>
+    <script src="../assets/js/cart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCartCount();
+        });
+    </script>
+</body>
+</html>
